@@ -24,7 +24,7 @@
                 width: 100%;
                 display: table;
                 font-weight: 100;
-                font-family: 'Lato';
+                font-family: 'Arial';
             }
 
             .container {
@@ -48,16 +48,41 @@
     </head>
     <body>
     <nav>
-      <div class="navigation">
-        <ul><a href="{{ url('/') }}"> Home</a></ul>
-           <ul><a href="{{ url('/about') }}">About</a></ul>
-         <ul><a href="{{ url('/contact')}}">Contact</a></ul>
-         <ul><a href="{{ url('/view')}}">View</a></ul>
-      </div>
-    </nav>
+   
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Aliens</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{{ url('/') }}">Home</a></li>
+      <li><a href="{{ url('/about') }}">About</a></li>
+      <li><a href="{{ url('/contact')}}">Contact</a></li> 
+      <li><a href="{{ url('/view')}}">View</a></li>
+      <li><a href="{{ url('/new')}}">New</a></li>  
+    </ul>
+  </div>
+</nav>
+
+   @if(Session::has('flash_message'))
+   <div class="alert alert-success">
+     {{ Session::get('flash_message') }}
+   </div>
+   @endif
+
     <div class="container">
 
         @yield('content')
     </div>
     </body>
 </html>
+ <!--
+      <div class="navigation">
+        <ul><a href="{{ url('/') }}"> Home</a></ul>
+           <ul><a href="{{ url('/about') }}">About</a></ul>
+         <ul><a href="{{ url('/contact')}}">Contact</a></ul>
+         <ul><a href="{{ url('/view')}}">View</a></ul>
+         <ul><a href="{{ url('/new')}}">new</a></ul>
+      </div>
+    </nav>
+    -->

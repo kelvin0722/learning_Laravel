@@ -12,15 +12,18 @@
 */
  
  //Index page/homepage
-Route::get('/', function () {
-    return view('master');
-});
+Route::get('/', function () {return view('index');});
 
 Route::get('/view','RecordsController@showdb');
 //header views
 Route::get('/about', 'RecordsController@showAll');
 
 Route::get('/contact','RecordsController@showContact');
+
+Route::post('/insert','RecordsController@store');
+
+
+Route::get('/new','RecordsController@showNew');
 
 
 Route::get('contact','RecordsController@contact');
